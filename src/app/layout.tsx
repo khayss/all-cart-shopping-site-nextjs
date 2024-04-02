@@ -22,19 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={
-          inter.className +
-          " main-body"
-        }
-      >
+      <body className={inter.className + " main-body"}>
         <header className="header-main">
           <div className="header-1">
             <div>
-              <Link
-                href={"/"}
-                className="header-logo"
-              >
+              <Link href={"/"} className="header-logo">
                 <ShoppingBagIcon />
                 <h1>AllCart</h1>
               </Link>
@@ -50,16 +42,17 @@ export default function RootLayout({
         </header>
         <main className="h-full">{children}</main>
         <footer className="footer-main">
-          <div className="flex justify-center">
-            <Link href={"/"} className="flex leading-none items-end text-xl">
+          <div>
+            <Link
+              href={"/"}
+              className="flex leading-none items-end text-xl text-yellow-500"
+            >
               <ShoppingBagIcon />
               <h1>AllCart</h1>
             </Link>
           </div>
-          <div className="flex justify-center">
-            &copy; {new Date().getFullYear()} — AllCart Inc.
-          </div>
-          <div className="flex justify-center">
+          <div>&copy; {new Date().getFullYear()} — AllCart Inc.</div>
+          <div>
             <p>
               Built with <FavoriteIcon type="" /> and {` `}
               <a href="https://nextjs.org" target="_blank">

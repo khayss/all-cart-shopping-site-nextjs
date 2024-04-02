@@ -29,28 +29,24 @@ const NavBar = () => {
       >
         {showHamburger ? <CloseIcon /> : <MenuIcon />}
       </div>
-      <ul className={`${showHamburger ? "" : "hidden"} nav-ul-1`}>
-        <li>
-          <Link
-            href={"/products"}
-            className="nav-one-links"
-          >
+      <ul
+        className={`${
+          showHamburger ? "" : "hidden"
+        } fixed md:static md:flex md:flex-row top-16 left-0 h-36 w-dvw flex flex-col items-start justify-center md:gap-x-16 bg-slate-100 md:h-full md:items-center
+`}
+      >
+        <li className="nav-one-ul-li">
+          <Link href={"/products"} className="nav-one-links">
             Products
           </Link>
         </li>
-        <li>
-          <Link
-            href={"/categories"}
-            className="nav-one-links"
-          >
+        <li className="nav-one-ul-li">
+          <Link href={"/categories"} className="nav-one-links">
             Categories
           </Link>
         </li>
-        <li>
-          <Link
-            href={"tracking"}
-            className="nav-one-links"
-          >
+        <li className="nav-one-ul-li">
+          <Link href={"tracking"} className="nav-one-links">
             Tracking
           </Link>
         </li>
