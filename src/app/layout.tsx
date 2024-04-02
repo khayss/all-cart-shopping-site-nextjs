@@ -25,15 +25,15 @@ export default function RootLayout({
       <body
         className={
           inter.className +
-          " flex flex-col justify-between min-h-dvh w-dvw pt-28 md:pt-36"
+          " main-body"
         }
       >
-        <header className="fixed top-0 w-dvw flex items-center md:flex-col md:justify-between bg-yellow-500 h-16 md:h-32">
-          <div className="flex items-center justify-between w-5/6 md:w-full md:h-1/2 px-6">
+        <header className="header-main">
+          <div className="header-1">
             <div>
               <Link
                 href={"/"}
-                className="flex items-end leading-none text-xl capitalize"
+                className="header-logo"
               >
                 <ShoppingBagIcon />
                 <h1>AllCart</h1>
@@ -49,7 +49,7 @@ export default function RootLayout({
           <NavBar />
         </header>
         <main className="h-full">{children}</main>
-        <footer className="flex-col items-center justify-center w-dvw py-6 bg-slate-200">
+        <footer className="footer-main">
           <div className="flex justify-center">
             <Link href={"/"} className="flex leading-none items-end text-xl">
               <ShoppingBagIcon />
