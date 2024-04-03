@@ -32,8 +32,7 @@ const NavBar = () => {
       <ul
         className={`${
           showHamburger ? "" : "hidden"
-        } fixed md:static md:flex md:flex-row top-16 left-0 h-36 w-dvw flex flex-col items-start justify-center md:gap-x-16 bg-slate-100 md:h-full md:items-center
-`}
+        } fixed md:static md:flex md:flex-row top-16 left-0 h-36 w-dvw flex flex-col items-start justify-center md:gap-x-16 bg-slate-100 md:h-full md:items-center`}
       >
         <li className="nav-one-ul-li">
           <Link href={"/products"} className="nav-one-links">

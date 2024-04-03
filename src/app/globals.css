@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 .main-body {
-  @apply flex flex-col justify-between min-h-dvh w-dvw pt-28 md:pt-36
+  @apply flex flex-col justify-between min-h-dvh w-dvw pt-16 md:pt-32
 }
 
 .header-main {
-  @apply fixed top-0 w-dvw flex items-center md:flex-col md:justify-between bg-yellow-500 h-16 md:h-32 text-gray-600
+  @apply fixed top-0 w-dvw flex items-center md:flex-col md:justify-between bg-yellow-500 h-16 md:h-32 text-gray-600 z-50
 }
 
 .header-1 {
-  @apply flex items-center justify-between w-5/6 md:w-full md:h-1/2 px-6 lg:px-[20%]
+  @apply flex items-center justify-between w-5/6 md:w-full md:h-1/2 px-6 xl:px-[20%]
 }
 
 .header-logo {
@@ -19,7 +19,7 @@
 }
 
 .footer-main {
-  @apply flex-col items-center justify-center w-dvw py-6 bg-slate-200
+  @apply flex-col items-center justify-center w-dvw py-6 bg-slate-100 text-gray-500
 }
 
 .footer-main>div {

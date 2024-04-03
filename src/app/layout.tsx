@@ -5,8 +5,10 @@ import Link from "next/link";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
 import NavBar from "@/components/NavBar";
+import { ReactNode } from "react";
+import CartProvider from "@/contexts/CartProvider";
+import CartNotif from "@/components/CartNotif";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,49 +20,57 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={inter.className + " main-body"}>
-        <header className="header-main">
-          <div className="header-1">
+        <CartProvider>
+          <header className="header-main">
+            <div className="header-1">
+              <div>
+                <Link href={"/"} className="header-logo">
+                  <ShoppingBagIcon />
+                  <h1>AllCart</h1>
+                </Link>
+              </div>
+              <div>
+                <Link href={"/cart"} className="relative">
+                  <ShoppingCartIcon />
+                  <CartNotif className="absolute -top-2 -right-4 bg-red-600 text-slate-100 text-sm rounded-full px-1.5 py-1 leading-none flex items-center justify-center" />
+                </Link>
+              </div>
+            </div>
+            <NavBar />
+          </header>
+          <main className="flex flex-col grow h-full w-full xl:px-[20%]">
+            {children}
+          </main>
+          <footer className="footer-main">
             <div>
-              <Link href={"/"} className="header-logo">
+              <Link
+                href={"/"}
+                className="flex leading-none items-end text-xl text-yellow-500"
+              >
                 <ShoppingBagIcon />
                 <h1>AllCart</h1>
               </Link>
             </div>
+            <div>&copy; {new Date().getFullYear()} — AllCart Inc.</div>
             <div>
-              <Link href={"/cart"}>
-                <ShoppingCartIcon />
-                <p></p>
-              </Link>
+              <p>
+                Built with <FavoriteIcon className="text-red-600" /> and {` `}
+                <a
+                  href="https://nextjs.org"
+                  target="_blank"
+                  className="text-black"
+                >
+                  Next.js
+                </a>
+              </p>
             </div>
-          </div>
-          <NavBar />
-        </header>
-        <main className="h-full">{children}</main>
-        <footer className="footer-main">
-          <div>
-            <Link
-              href={"/"}
-              className="flex leading-none items-end text-xl text-yellow-500"
-            >
-              <ShoppingBagIcon />
-              <h1>AllCart</h1>
-            </Link>
-          </div>
-          <div>&copy; {new Date().getFullYear()} — AllCart Inc.</div>
-          <div>
-            <p>
-              Built with <FavoriteIcon type="" /> and {` `}
-              <a href="https://nextjs.org" target="_blank">
-                Next.js
-              </a>
-            </p>
-          </div>
-        </footer>
+          </footer>
+        </CartProvider>
       </body>
     </html>
   );
